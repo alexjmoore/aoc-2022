@@ -47,3 +47,23 @@ with open('input.txt') as input:
         if fs[dir]['total_size'] <= 100000:
             sum_of_10k += fs[dir]['total_size']
     print(f"sum of directories up to 10k: {sum_of_10k}")
+
+    root_size = fs['/']['total_size']
+    total_size = 70000000
+
+    curr_free_space = total_size - root_size
+
+    delta_needed = 30000000 - curr_free_space
+
+    print(f"root: {root_size} free: {curr_free_space} delta: {delta_needed}")
+    
+    sorted_dirs = sorted(fs, key=lambda x: (fs[x]['total_size']), reverse=True)
+    sorted_dirs.pop(0) # remove /
+    prev = ''
+    for x in sorted_dirs:
+        if fs[x]['total_size'] >= delta_needed:
+            prev = x
+        else:
+            break
+    
+    print(f"found best candidate: {prev} size: {fs[prev]['total_size']}")
