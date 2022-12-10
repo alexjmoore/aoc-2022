@@ -14,9 +14,9 @@ class CPU:
 
     def __cycle(self):
         if (self.cycle % 40 >= self.X - 1) and (self.cycle % 40 <= self.X + 1):
-            self.rows +="#"
+            self.rows +='#'
         else:
-            self.rows +="."
+            self.rows +='.'
 
         self.cycle += 1
         if (self.cycle) % 40 == 0:
@@ -27,7 +27,7 @@ theCPU = CPU()
 
 with open('input.txt') as input:
     while line := input.readline().strip():
-        if line.startswith("noop"):
+        if line.startswith('noop'):
             theCPU.noop()
         else:
             _, value = line.split()
