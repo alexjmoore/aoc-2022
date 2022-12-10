@@ -37,5 +37,5 @@ with open('input.txt') as input:
                 visible_count += 1
                 
     perim_trees = (rows * 2) + (columns * 2) - 4
-    print(f"perimerter trees: {perim_trees}, visible trees: {visible_count}")
+    print(f"perimeter trees: {perim_trees}, visible trees: {visible_count}")
     print(f"total visible tree: {perim_trees + visible_count}")
